@@ -1,0 +1,13 @@
+<schema name="abracadabra" version="1.6">
+    <dynamicField name="*" type="string" indexed="true" stored="true"  multiValued="true"/>
+    <field name="text" type="text_basic" indexed="true" stored="false" multiValued="true"/>
+    <copyField source="*" dest="text"/>
+
+    <fieldType name="string" class="solr.StrField"/>
+
+    <fieldType name="text_basic" class="solr.TextField">
+        <analyzer>
+            <tokenizer class="solr.LowerCaseTokenizerFactory" />
+        </analyzer>
+    </fieldType>
+</schema>
