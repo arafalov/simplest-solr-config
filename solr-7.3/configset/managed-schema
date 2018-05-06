@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="smallest-config" version="1.6">
+
+  <field name="id" type="string" required="true" indexed="true" stored="true" />
+  <field name="_text_" type="text_basic" multiValued="true" indexed="true" stored="false" docValues="false"/>
+
+  <dynamicField name="*" type="text_basic" indexed="true" stored="true"/>
+
+  <copyField source="*" dest="_text_"/>
+
+  <uniqueKey>id</uniqueKey>
+
+  <fieldType name="string" class="solr.StrField" sortMissingLast="true" docValues="true"/>
+
+  <fieldType name="text_basic" class="solr.SortableTextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer class="solr.StandardTokenizerFactory"/>
+      <filter class="solr.LowerCaseFilterFactory"/>
+    </analyzer>
+    </fieldType>
+</schema>

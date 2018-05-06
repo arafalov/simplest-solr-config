@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+  <luceneMatchVersion>7.3.0</luceneMatchVersion>
+
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <lst name="defaults">
+        <str name="df">_text_</str> 
+        <str name="echoParams">all</str>
+    </lst>
+  </requestHandler>
+
+</config>
